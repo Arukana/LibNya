@@ -1,0 +1,7 @@
+[package]
+name = "nya"
+version = "0.1.0"
+
+[lib]
+name = "nya"
+crate-type = ["dylib"]
