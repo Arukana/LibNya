@@ -1,4 +1,2 @@
 language: rust
-compiler:
-  - clang
-  - gcc
+script:   make
