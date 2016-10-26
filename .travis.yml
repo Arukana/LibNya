@@ -1,0 +1,4 @@
+language: rust
+compiler:
+  - clang
+  - gcc
