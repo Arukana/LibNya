@@ -41,8 +41,8 @@ pub struct Tuple {
 #[repr(C)]
 pub struct LibraryState {
     pub sheet: Sheet,
-    pub emotions: [Emotion; SPEC_MAX_DRAW],
-    pub draws: [[Tuple; SPEC_MAX_XY]; SPEC_MAX_DRAW],
+    pub implicite: [Emotion; SPEC_MAX_DRAW],
+    pub explicite: [[Tuple; SPEC_MAX_XY]; SPEC_MAX_DRAW],
     pub position: Position,
     pub cartesian: [libc::c_ushort; 2],
     pub message: [libc::c_uchar; 1024],
@@ -95,6 +95,10 @@ pub enum Emotion {
 pub unsafe extern "C" fn start(state: *mut LibraryState, _: *mut libc::c_void) {
     if let Some(mut state) = state.as_mut() {
         state.sheet = Sheet::Bust;
+        state.explicite[0][0] = Tuple {
+            part: Part::Heart,
+            emotion: Emotion::Shocked,
+        };
         libc::memcpy(
             state.message.as_mut_ptr() as *mut libc::c_void,
             b"hello".as_ptr() as *const libc::c_void,
