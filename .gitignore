@@ -6,5 +6,10 @@
 # More information here http://doc.crates.io/guide.html#cargotoml-vs-cargolock
 Cargo.lock
 
+# Vim
+*.swn
+*.swo
+*.swp
+
 libnya.so
 libnya.dylib
