@@ -1,0 +1,4 @@
+[submodule "src/ffi"]
+	path = src/ffi
+	url = https://github.com/Arukana/ffi.git
+	branch = rust

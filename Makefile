@@ -9,4 +9,5 @@ LSTC := $(patsubst %,$(DIRC)%,$(SRCS))
 default: all
 
 all:
+	git init
 	rustc --verbose src/lib.rs --crate-name $(NAME) --crate-type dylib --out-dir .
