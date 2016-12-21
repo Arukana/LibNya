@@ -9,6 +9,6 @@ LSTC := $(patsubst %,$(DIRC)%,$(SRCS))
 default: all
 
 all:
-#	git submodule init
-#	git submodule update
+	git submodule init
+	git submodule update
 	rustc --verbose src/lib.rs --crate-name $(NAME) --crate-type dylib --out-dir .
