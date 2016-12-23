@@ -12,12 +12,11 @@ env:
   - ARCH=i686
 
 install:
-  mkdir -p $PREFIX/ghc
-  mkdir -p /tmp/ghc
-  tar zx -C /tmp/ghc < <(curl -sSfL http://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-x86_64-apple-darwin.tar.xz)
-  cd /tmp/ghc/ghc-8.0.1
-  configure
-  sudo make install
+  - mkdir -p /tmp/ghc
+  - tar zx -C /tmp/ghc < <(curl -sSfL http://downloads.haskell.org/~ghc/8.0.1/ghc-8.0.1-x86_64-apple-darwin.tar.xz)
+  - cd /tmp/ghc/ghc-8.0.1
+  - ./configure
+  - sudo make install
 
 script:
   - rustc --version
