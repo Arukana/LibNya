@@ -8,10 +8,6 @@ os:
   - linux
   - osx
 
-branches:
-  only:
-    - master
-
 env:
   - ARCH=x86_64
   - ARCH=i686
