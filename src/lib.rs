@@ -11,7 +11,7 @@ mod ffi;
 use ffi::*;
 
 #[no_mangle]
-pub unsafe extern "C" fn start(state: *mut LibraryState, _: *mut libc::c_void) {
+pub unsafe extern "C" fn start(state: *mut LibraryState, _: *mut *mut libc::c_void) {
     if let Some(mut state) = state.as_mut() {
         state.sheet = Sheet::Bust;
         state.emotion[0][0] = Tuple {
@@ -19,12 +19,6 @@ pub unsafe extern "C" fn start(state: *mut LibraryState, _: *mut libc::c_void) {
             emotion: Emotion::Shocked,
         };
         state.position.cardinal = Cardinal::MiddleCentral;
-        /*
-        libc::memcpy(
-            state.message.as_mut_ptr() as *mut libc::c_void,
-            b"hello".as_ptr() as *const libc::c_void,
-            5
-        );*/
     }
 }
 
