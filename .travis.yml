@@ -13,4 +13,5 @@ env:
   - ARCH=i686
 
 script:
+  - gcc -shared -o libnya.dylib -fPIC -Iinclude $(python-config --cflags) $(python-config --ldflags) src/lib.c
   - make
