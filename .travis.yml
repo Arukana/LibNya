@@ -1,8 +1,9 @@
 ---
 sudo: false
-language: rust
-rust:
-  - nightly
+language: c
+compiler:
+  - clang
+  - gcc
 
 os:
   - linux
@@ -14,3 +15,8 @@ env:
 
 script:
   - make
+
+addons:
+  apt:
+    packages:
+      - gcc-multilib
