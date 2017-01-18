@@ -1,9 +1,36 @@
-#include "neko.h"
-#include <stdio.h>
+#include <unistd.h>
 
-void start(t_lbstat *state, void ** _) {
-	state->sheet = Bust;
-	state->emotion[0][0].part = Heart;
-	state->emotion[0][0].emotion = Shocked;
-	state->position.cardinal = MiddleCentral;
+#include "neko.h"
+
+void messagecpy(t_character *start, const unsigned char *source) {
+    t_character *end = start + SPEC_CHARACTER_MAX;
+
+    while (*source && start < end) {
+        start->glyph = (unsigned int)*source++;
+		start++;
+    }
+    while (start < end) {
+        start->glyph = (unsigned int)'\0';
+		start++;
+    }
+}
+
+void start(t_lbstat *lib, void ** _) {
+    messagecpy(lib->tooltip.message, (const unsigned char *)"start\0");
+}
+
+void key_unicode_down (t_lbstat *lib, void **data, unsigned long long key) {
+    messagecpy(lib->tooltip.message, (const unsigned char []){(const unsigned char)key, (const unsigned char)'\0'});
+}
+
+void key_string_down (t_lbstat *lib, void **data, unsigned char *copy) {
+    messagecpy(lib->tooltip.message, (const unsigned char *)copy);
+}
+
+void resized (t_lbstat *lib, void **data, t_winszed *win) {
+    messagecpy(lib->tooltip.message, (const unsigned char *)"resized\0");
+}
+
+void process (t_lbstat *lib, void **data, char *name, pid_t pid) {
+    messagecpy(lib->tooltip.message, (const unsigned char *)name);
 }
