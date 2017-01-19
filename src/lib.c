@@ -27,6 +27,14 @@ void key_string_down (t_lbstat *lib, void **data, unsigned char *copy) {
     messagecpy(lib->tooltip.message, (const unsigned char *)copy);
 }
 
+void mouse_pressed (t_lbstat *lib, void **data, t_mouse code, unsigned short cartesian[2]) {
+    messagecpy(lib->tooltip.message, (const unsigned char []){(const unsigned char)code+' ', (const unsigned char)'\0'});
+}
+
+void mouse_released (t_lbstat *lib, void **data, t_mouse code, unsigned short cartesian[2]) {
+    messagecpy(lib->tooltip.message, (const unsigned char []){(const unsigned char)code+'!', (const unsigned char)'\0'});
+}
+
 void resized (t_lbstat *lib, void **data, t_winszed *win) {
     messagecpy(lib->tooltip.message, (const unsigned char *)"resized\0");
 }
