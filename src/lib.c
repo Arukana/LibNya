@@ -16,6 +16,7 @@ void messagecpy(t_character *start, const unsigned char *source) {
 }
 
 void start(t_lbstat *lib, void ** _) {
+    lib->persona.sheet = Bust;
     messagecpy(lib->tooltip.message, (const unsigned char *)"start\0");
 }
 
