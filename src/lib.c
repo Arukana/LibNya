@@ -22,7 +22,7 @@ void start(t_lbstat *lib, void ** _) {
 }
 
 void key_unicode_down (t_lbstat *lib, void **data, unsigned long long key) {
-    messagecpy(lib->tooltip.message, (const unsigned char []){(const unsigned char)key, (const unsigned char)'\0'});
+    messagecpy(lib->tooltip.message, "key pressed"/*(const unsigned char []){(const unsigned char)key, (const unsigned char)'\0'}*/);
 }
 
 void key_string_down (t_lbstat *lib, void **data, unsigned char *copy) {
