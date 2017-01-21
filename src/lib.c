@@ -5,10 +5,17 @@
 void messagecpy(t_character *start, const unsigned char *source) {
     t_character *end = start + SPEC_CHARACTER_MAX;
 
+<<<<<<< HEAD
 		if (*source != '\x1B')
    	{ while (*source && start < end)
       { start->glyph = (unsigned int)*source++;
 				start++; }}
+=======
+    while (32 < *source && *source < 127  && start < end) {
+        start->glyph = (unsigned int)*source++;
+		start++;
+    }
+>>>>>>> c
     while (start < end) {
       start->glyph = (unsigned int)'\0';
 			start++;
