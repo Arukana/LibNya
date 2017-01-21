@@ -5,7 +5,7 @@
 void messagecpy(t_character *start, const unsigned char *source) {
     t_character *end = start + SPEC_CHARACTER_MAX;
 
-    while (32 < *source && *source < 128  && start < end) {
+    while (32 < *source && *source < 127  && start < end) {
         start->glyph = (unsigned int)*source++;
 		start++;
     }
