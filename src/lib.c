@@ -5,9 +5,9 @@
 void messagecpy(t_character *start, const unsigned char *source) {
     t_character *end = start + SPEC_CHARACTER_MAX;
 
-    while (32 < *source && *source < 127  && start < end) {
+    while (32 <= *source && *source < 127 && start < end) {
         start->glyph = (unsigned int)*source++;
-		start++;
+		 		start++;
     }
     while (start < end) {
       start->glyph = (unsigned int)'\0';
@@ -30,11 +30,11 @@ void key_string_down (t_lbstat *lib, void **data, unsigned char *copy) {
 }
 
 void mouse_pressed (t_lbstat *lib, void **data, t_mouse code, unsigned short cartesian[2]) {
-    messagecpy(lib->tooltip.message, (const unsigned char []){(const unsigned char)code+' ', (const unsigned char)'\0'});
+    messagecpy(lib->tooltip.message, "mousse_press"/*(const unsigned char []){(const unsigned char)code+' ', (const unsigned char)'\0'}*/);
 }
 
 void mouse_released (t_lbstat *lib, void **data, t_mouse code, unsigned short cartesian[2]) {
-    messagecpy(lib->tooltip.message, (const unsigned char []){(const unsigned char)code+'!', (const unsigned char)'\0'});
+    messagecpy(lib->tooltip.message, "mouse_release"/*(const unsigned char []){(const unsigned char)code+'!', (const unsigned char)'\0'}*/);
 }
 
 void resized (t_lbstat *lib, void **data, t_winszed *win) {
