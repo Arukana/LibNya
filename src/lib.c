@@ -5,13 +5,13 @@
 void messagecpy(t_character *start, const unsigned char *source) {
     t_character *end = start + SPEC_CHARACTER_MAX;
 
-    while (*source && start < end) {
-        start->glyph = (unsigned int)*source++;
-		start++;
-    }
+		if (*start != '\x1B')
+   	{ while (*source && start < end)
+      { start->glyph = (unsigned int)*source++;
+				start++; }}
     while (start < end) {
-        start->glyph = (unsigned int)'\0';
-		start++;
+      start->glyph = (unsigned int)'\0';
+			start++;
     }
 }
 
@@ -22,7 +22,7 @@ void start(t_lbstat *lib, void ** _) {
 }
 
 void key_unicode_down (t_lbstat *lib, void **data, unsigned long long key) {
-    messagecpy(lib->tooltip.message, "key pressed"/*(const unsigned char []){(const unsigned char)key, (const unsigned char)'\0'}*/);
+	messagecpy(lib->tooltip.message, (const unsigned char []){(const unsigned char)key, (const unsigned char)'\0'});
 }
 
 void key_string_down (t_lbstat *lib, void **data, unsigned char *copy) {
