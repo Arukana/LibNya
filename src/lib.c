@@ -16,9 +16,8 @@ void messagecpy(t_character *start, const unsigned char *source) {
 }
 
 void start(t_lbstat *lib, void ** _) {
-	lib->persona.sheet = Bust;
-	(*lib).tooltip.relative = Left;
-	messagecpy(lib->tooltip.message, (const unsigned char *)"start\0");
+  lib->persona.sheet = BustHappy;
+  messagecpy(lib->tooltip.message, (const unsigned char *)"start\0");
 }
 
 void key_unicode_down (t_lbstat *lib, void **data, unsigned long long key) {
