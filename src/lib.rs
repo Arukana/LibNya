@@ -28,7 +28,7 @@ pub unsafe fn messagecpy(mut start: *mut Character, mut source: *mut libc::c_uch
 
 #[no_mangle]
 pub unsafe extern "C" fn start(lib: *mut LibraryState, _: *mut *mut libc::c_void) {
-    (*lib).persona.sheet = Sheet::Bust;
+    (*lib).persona.sheet = Sheet::BustHappy;
     messagecpy( &mut ((*lib).tooltip.message[0]) as *mut ffi::Character , &b"start\0"[0] as *const libc::c_uchar as *mut libc::c_uchar);
 }
 
